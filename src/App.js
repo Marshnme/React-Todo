@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from "react-dom";
 import TodoList from "./components/TodoComponents/TodoList"
 import TodoForm from "./components/TodoComponents/TodoForm"
 
@@ -25,23 +26,23 @@ class App extends React.Component {
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
 
-  addItem = itemName =>{
+  addItems = itemName => {
     const newItem = {
-      name:itemName,
-      id:Date.now(),
-      purchased:false
+      task: itemName,
+      id: Date.now(),
+      purchased: false
     };
     this.setState({
       chores: [...this.state.chores, newItem]
-    })
-  }
+    });
+  };
 
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoList chores={this.state.chores}/>
-        <TodoForm addItem={this.addItem}/>
+        <TodoForm addItems={this.addItems}/>
       </div>
     );
   }

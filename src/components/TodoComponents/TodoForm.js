@@ -7,25 +7,35 @@ import React from 'react';
         constructor(){
             super();
             this.state = {
-                item:""
-            }
+                item: ""
+                
+            };
         }
 
         handleChanges = e => {
             this.setState({
                 [e.target.name]: e.target.value
-            })
-        }
-        render(){
+                
+            });
+            console.log(e.target.value)
+        };
+
+        submitItem = e => {
+            e.preventDefault();
+            this.props.addItems(this.state.item);
+            
+        };
+
+        render(){                           
         return(
             
-            <form>
-                <input type="text" value={this.item}></input>
-                <button type="submit">Add Task</button>
-                <button type="submit">Clear Completed</button>
+            <form onSubmit={this.submitItem}>
+                <input type="text" value={this.item} name="item" onChange={this.handleChanges}/>
+                <button>Add Task</button>
+                {/* <button type="submit">Clear Completed</button> */}
             </form>
             
         )
     }
 }
-    export default TodoForm
+    export default TodoForm;
