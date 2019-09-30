@@ -22,17 +22,20 @@ import React from 'react';
 
         submitItem = e => {
             e.preventDefault();
-            this.props.addItems(this.state.item);
+            this.props.addItems(this.state.chore);
             
         };
+
+
+
 
         render(){                           
         return(
             
             <form onSubmit={this.submitItem}>
-                <input type="text" value={this.item} name="item" onChange={this.handleChanges}/>
-                <button>Add Task</button>
-                {/* <button type="submit">Clear Completed</button> */}
+                <input type="text" value={this.item} name="chore" onChange={this.handleChanges}/>
+                <button type="submit">Add Task</button>
+                <button onClick={this.props.clear}>Clear Completed</button>
             </form>
             
         )

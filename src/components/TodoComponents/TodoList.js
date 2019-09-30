@@ -5,7 +5,7 @@ const TodoList = props =>{
     return(
         <div>
             {props.chores.map(item => (
-                <Todo key={item.id} item={item} />
+                <Todo key={item.id} item={item} toggleItem={props.toggleItem}/>
             ))}
         </div>
     )
