@@ -1,8 +1,22 @@
 import React from 'react';
+import styled from "styled-components"
 
+    const FormParent = styled.form`
+        display:flex;
+        flex-direction:column;
+        width:30vw;
+    `;
 
+    const InputChild = styled.input`
+        margin-bottom:5%;
+        display:flex;
+    `;
 
-
+    const ButtonS = styled.div`
+        margin-bottom:5%;
+        display:flex;
+        justify-content:center;
+    `;
     class TodoForm extends React.Component {
         constructor(){
             super();
@@ -32,11 +46,13 @@ import React from 'react';
         render(){                           
         return(
             
-            <form onSubmit={this.submitItem}>
-                <input type="text" value={this.item} name="chore" onChange={this.handleChanges}/>
-                <button type="submit">Add Task</button>
-                <button onClick={this.props.clear}>Clear Completed</button>
-            </form>
+            <FormParent onSubmit={this.submitItem}>
+                <InputChild placeholder="Add Task"type="text" value={this.item} name="chore" onChange={this.handleChanges}/>
+                <ButtonS>
+                    <button type="submit">Add Task</button>
+                    <button onClick={this.props.clear}>Clear Completed</button>
+                </ButtonS>
+            </FormParent>
             
         )
     }

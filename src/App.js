@@ -3,6 +3,16 @@ import ReactDOM from "react-dom";
 import TodoList from "./components/TodoComponents/TodoList"
 import TodoForm from "./components/TodoComponents/TodoForm"
 import "./components/TodoComponents/Todo.css"
+import styled from "styled-components"
+
+
+const ListDiv = styled.div`
+display:flex;
+align-items:center;
+flex-flow:column
+`;
+
+
 
 
 const taskData=[
@@ -29,7 +39,7 @@ class App extends React.Component {
   // this component is going to take care of state, and any change handlers you need to work with your state
 
   toggleItem = id => {
-    console.log(id);
+    // console.log(id);
 
     this.setState({
       chores: this.state.chores.map(item => {
@@ -69,11 +79,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
-        <TodoList chores={this.state.chores} toggleItem={this.toggleItem}/>
+      <ListDiv>
+        <h1>Welcome to your Todo App!</h1>
         <TodoForm addItems={this.addItems} clear={this.clearPurchased}/>
-      </div>
+        <TodoList chores={this.state.chores} toggleItem={this.toggleItem}/>
+        
+      </ListDiv>
     );
   }
 }
